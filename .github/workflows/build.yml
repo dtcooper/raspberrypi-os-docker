@@ -49,5 +49,5 @@ jobs:
           tags: |
             ${{ steps.vars.outputs.repo }}:latest
             ${{ steps.vars.outputs.repo }}:bullseye
-          cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}:bullseye-cache
-          cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}:bullseye-cache,mode=max
+          cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:bullseye
+          cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:bullseye,mode=max
