@@ -20,9 +20,15 @@ Or from the command line
 $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
 ```
 
-## Tags
+## Containers
 
-| Base Container                       | Image Name                               | Tags                                          |
-| ------------------------------------ | ---------------------------------------- | --------------------------------------------- |
-| Debian (`debian:bullseye`)           | `ghcr.io/dtcooper/raspberrypi-os:latest` | `latest`, `bullseye`                          |
-| Python 3.10 (`python:3.10-bullseye`) | `ghcr.io/dtcooper/raspberrypi-os:python` | `python`, `python3.10`, `python3.10-bullseye` |
+**Debian (Bullseye)**
+ * Base image: `debian:bullseye`
+ * Image name: `ghcr.io/dtcooper/raspberrypi-os:latest`
+ * Tags: `latest`, `bullseye`
+
+**Python 3.10 (Debian Bullseye)**
+ * Base image: `python:3.10-bullseye`
+ * Image name: `ghcr.io/dtcooper/raspberrypi-os:python`
+ * Tags: `python`, `python3.10`, `python3.10-bullseye`
+ * Architectures: `linux/arm64`, `linux/arm/v7`

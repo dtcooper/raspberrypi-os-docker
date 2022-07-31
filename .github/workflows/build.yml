@@ -21,11 +21,10 @@ jobs:
         include:
           -
             baseimage: "debian:bullseye"
-            # Highest specificity first (first one gets a cache tag, and a git SHA tag suffix)
-            tags: ["bullseye", "latest"]
+            tags: ["latest", "bullseye"]
           -
             baseimage: "python:3.10-bullseye"
-            tags: ["python3.10-bullseye", "python3.10", "python"]
+            tags: ["python", "python3.10", "python3.10-bullseye"]
     steps:
       -
         name: Set variables
@@ -34,7 +33,6 @@ jobs:
           USERNAME="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
           echo "::set-output name=repo::ghcr.io/${USERNAME}/raspberrypi-os"
           echo "::set-output name=username::${USERNAME}"
-          echo "::set-output name=sha::$(echo ${GITHUB_SHA} | cut -c 1-8)"
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -57,7 +55,7 @@ jobs:
         with:
           push: true
           platforms: linux/arm64,linux/arm/v7
-          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.repo)) }},${{ matrix.tags[0] }}-${{ steps.vars.outputs.sha }}
+          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.repo)) }}
           build-args: BASE_CONTAINER=${{ matrix.baseimage }}
           cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }}
           cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }},mode=max
