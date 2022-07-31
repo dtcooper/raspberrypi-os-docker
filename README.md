@@ -19,6 +19,7 @@ $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
 
 ## Tags
 
-| Raspberry Pi OS Version  | Tags                  |
-| ------------------------ | --------------------- |
-| Bullseye                 | `latest`, `bullseye`  |
+| Base Container                  | Tags                                          |
+| ------------------------------- | --------------------------------------------- |
+| Debian (`debian:bullseye`)      | `latest`, `bullseye`                          |
+| Python (`python:3.10-bullseye`) | `python`, `python3.10`, `python3.10-bullseye` |

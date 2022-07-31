@@ -1,4 +1,5 @@
-FROM debian:bullseye AS base
+ARG BASE_CONTAINER
+FROM $BASE_CONTAINER AS base
 
 
 FROM base AS builder

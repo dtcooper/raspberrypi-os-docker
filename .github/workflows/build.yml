@@ -16,6 +16,15 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     name: Build container
+    strategy:
+      matrix:
+        include:
+          -
+            tags: ["latest", "bullseye"]
+            baseimage: "debian:buster"
+          -
+            tags: ["python", "python3.10", "python3.10-bullseye"]
+            baseimage: "python:3.10-bullseye"
     steps:
       -
         name: Set variables
@@ -46,8 +55,7 @@ jobs:
         with:
           push: true
           platforms: linux/arm64,linux/arm/v7
-          tags: |
-            ${{ steps.vars.outputs.repo }}:latest
-            ${{ steps.vars.outputs.repo }}:bullseye
-          cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:bullseye
-          cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:bullseye,mode=max
+          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',${0}:', steps.vars.outputs.repo)) }}
+          build-args: BASE_CONTAINER=${{ matrix.baseimage }}
+          cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }}
+          cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }},mode=max
