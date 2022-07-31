@@ -1,10 +1,13 @@
 # Raspberry Pi OS Docker Base Images
 
-This is a minimal Docker container base image for building and running software
-that require's Raspberry Pi's Debian packageset.
+Here are Docker container base images for building and running software that
+requires Raspberry Pi's Debian packageset.
 
 So far the Debian and Python base images are supported, but any base images based
 on Debian Bullseye can be supported. Submit a Pull Request if you'd like one added.
+
+Supported architectures: `linux/arm64` and `linux/arm/v7` (limiting factor here
+is the Pi itself)
 
 ## Usage
 
@@ -21,8 +24,6 @@ $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
 ```
 
 ## Containers
-
-Supported architectures: `linux/arm64` and `linux/arm/v7`
 
 **Debian (Bullseye)**
  * Base image: `debian:bullseye`
