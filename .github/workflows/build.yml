@@ -20,11 +20,9 @@ jobs:
       matrix:
         include:
           -
-            name: debian
             baseimage: "debian:buster"
             tags: ["latest", "bullseye"]
           -
-            name: python
             baseimage: "python:3.10-bullseye"
             tags: ["python", "python3.10", "python3.10-bullseye"]
     steps:
