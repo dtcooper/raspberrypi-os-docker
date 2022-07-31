@@ -55,7 +55,7 @@ jobs:
         with:
           push: true
           platforms: linux/arm64,linux/arm/v7
-          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',${0}:', steps.vars.outputs.repo)) }}
+          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.repo)) }}
           build-args: BASE_CONTAINER=${{ matrix.baseimage }}
           cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }}
           cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }},mode=max
