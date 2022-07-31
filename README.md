@@ -22,6 +22,8 @@ $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
 
 ## Containers
 
+Supported architectures: `linux/arm64` and `linux/arm/v7`
+
 **Debian (Bullseye)**
  * Base image: `debian:bullseye`
  * Image name: `ghcr.io/dtcooper/raspberrypi-os:latest`
@@ -31,10 +33,8 @@ $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
  * Base image: `python:3.10-bullseye`
  * Image name: `ghcr.io/dtcooper/raspberrypi-os:python`
  * Tags: `python`, `python3.10`, `python3.10-bullseye`
- * Architectures: `linux/arm64`, `linux/arm/v7`
 
 **Python 3.9 (Debian Bullseye)**
  * Base image: `python:3.9-bullseye`
  * Image name: `ghcr.io/dtcooper/raspberrypi-os:python3.9`
  * Tags: `python3.9`, `python3.10-bullseye`
- * Architectures: `linux/arm64`, `linux/arm/v7`
