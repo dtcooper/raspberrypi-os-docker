@@ -12,9 +12,11 @@ concurrency:
   group: build
 
 jobs:
-  build:
+  build-push:
     runs-on: ubuntu-20.04
-    name: Build container
+    name: Build and push container
+    outputs:
+      dh-repo: ${{ steps.vars.outputs.dh-repo }}
     strategy:
       matrix:
         include:
@@ -73,11 +75,15 @@ jobs:
           build-args: BASE_CONTAINER=${{ matrix.baseimage }}
           cache-from: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }}
           cache-to: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }},mode=max
-      -
-        name: Docker Hub Description
+  dockerhub-desc:
+    runs-on: ubuntu-20.04
+    name: Docker Hub description
+    needs: [build-push]
+    steps:
+      - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ steps.vars.outputs.dh-repo }}
+          repository: ${{ needs.build-push.outputs.dh-repo }}
           short-description: Raspberry Pi OS Base Images
