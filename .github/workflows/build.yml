@@ -37,7 +37,8 @@ jobs:
         id: vars
         run: |
           USERNAME="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
-          echo "::set-output name=repo::ghcr.io/${USERNAME}/raspberrypi-os"
+          echo "::set-output name=gh-repo::ghcr.io/${USERNAME}/raspberrypi-os"
+          echo "::set-output name=dh-repo::${USERNAME}/raspberrypi-os"
           echo "::set-output name=username::${USERNAME}"
       -
         name: Checkout
@@ -56,12 +57,28 @@ jobs:
           username: ${{ steps.vars.outputs.username }}
           password: ${{ secrets.GITHUB_TOKEN }}
       -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
           platforms: linux/arm64,linux/arm/v7
-          tags: ${{ steps.vars.outputs.repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.repo)) }}
+          tags: |
+            ${{ steps.vars.outputs.gh-repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.gh-repo)) }},
+            ${{ steps.vars.outputs.dh-repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.dh-repo)) }}
           build-args: BASE_CONTAINER=${{ matrix.baseimage }}
-          cache-from: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }}
-          cache-to: type=registry,ref=${{ steps.vars.outputs.repo }}-cache:${{ matrix.tags[0] }},mode=max
+          cache-from: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }}
+          cache-to: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }},mode=max
+      -
+        name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: ${{ steps.vars.outputs.dh-repo }}
+          description: Raspberry Pi OS Docker Base Images

@@ -14,33 +14,33 @@ is the Pi itself)
 From your Dockerfile,
 
 ```Dockerfile
-FROM ghcr.io/dtcooper/raspberrypi-os:bullseye
+FROM dtcooper/raspberrypi-os:bullseye
 ```
 
 Or from the command line
 
 ```bash
-$ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
+$ docker run -it dtcooper/raspberrypi-os:bullseye
 ```
 
 ## Containers
 
 **Debian (Bullseye)**
  * Base image: `debian:bullseye`
- * Image name: `ghcr.io/dtcooper/raspberrypi-os:latest`
+ * Image name: `dtcooper/raspberrypi-os:latest`, `ghcr.io/dtcooper/raspberrypi-os:latest`
  * Tags: `latest`, `bullseye`
 
 **Python 3.10 (Debian Bullseye)**
  * Base image: `python:3.10-bullseye`
- * Image name: `ghcr.io/dtcooper/raspberrypi-os:python`
+ * Image name: `dtcooper/raspberrypi-os:python`, `ghcr.io/dtcooper/raspberrypi-os:python`
  * Tags: `python`, `python3.10`, `python3.10-bullseye`
 
 **Python 3.9 (Debian Bullseye)**
  * Base image: `python:3.9-bullseye`
- * Image name: `ghcr.io/dtcooper/raspberrypi-os:python3.9`
+ * Image name: `dtcooper/raspberrypi-os:python3.9`, `ghcr.io/dtcooper/raspberrypi-os:python3.9`
  * Tags: `python3.9`, `python3.9-bullseye`
 
 **Python 3.8 (Debian Bullseye)**
  * Base image: `python:3.8-bullseye`
- * Image name: `ghcr.io/dtcooper/raspberrypi-os:python3.8`
+ * Image name: `dtcooper/raspberrypi-os:python3.8`, `ghcr.io/dtcooper/raspberrypi-os:python3.8`
  * Tags: `python3.8`, `python3.8-bullseye`
