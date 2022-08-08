@@ -28,6 +28,9 @@ jobs:
           -
             baseimage: "python:3.9-bullseye"
             tags: ["python3.9", "python3.9-bullseye"]
+          -
+            baseimage: "python:3.8-bullseye"
+            tags: ["python3.8", "python3.8-bullseye"]
     steps:
       -
         name: Set variables

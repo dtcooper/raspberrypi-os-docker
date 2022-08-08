@@ -38,4 +38,9 @@ $ docker run -it ghcr.io/dtcooper/raspberrypi-os:bullseye
 **Python 3.9 (Debian Bullseye)**
  * Base image: `python:3.9-bullseye`
  * Image name: `ghcr.io/dtcooper/raspberrypi-os:python3.9`
- * Tags: `python3.9`, `python3.10-bullseye`
+ * Tags: `python3.9`, `python3.9-bullseye`
+
+**Python 3.8 (Debian Bullseye)**
+ * Base image: `python:3.8-bullseye`
+ * Image name: `ghcr.io/dtcooper/raspberrypi-os:python3.8`
+ * Tags: `python3.8`, `python3.8-bullseye`
