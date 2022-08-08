@@ -86,7 +86,7 @@ jobs:
         id: vars
         run: |
           USERNAME="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
-          echo "::set-output name=repo::${USERNAME}/raspberrypi-os"
+          echo "::set-output name=dh-repo::${USERNAME}/raspberrypi-os"
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -96,5 +96,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ needs.build-push.outputs.repo }}
+          repository: ${{ steps.vars.outputs.dh-repo }}
           short-description: Raspberry Pi OS Base Images
