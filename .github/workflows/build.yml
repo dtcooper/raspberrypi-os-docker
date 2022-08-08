@@ -10,7 +10,6 @@ on:
 
 concurrency:
   group: build
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -81,4 +80,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: ${{ steps.vars.outputs.dh-repo }}
-          short-description: Raspberry Pi OS Docker Images
+          short-description: Raspberry Pi OS Base Images
