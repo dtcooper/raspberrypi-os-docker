@@ -3,11 +3,14 @@
 Here are Docker container base images for building and running software that
 requires Raspberry Pi's Debian packageset.
 
-So far the Debian and Python base images are supported, but any base images based
-on Debian Bullseye can be supported. Submit a Pull Request if you'd like one added.
+So far Debian and Python base images are supported, but any base images based on
+Debian Bullseye could theoretically be supported. Create a
+[pull request](https://github.com/dtcooper/raspberrypi-os-docker/pulls) or
+[issue](https://github.com/dtcooper/raspberrypi-os-docker/issues)
+if you'd like one added.
 
-Supported architectures: `linux/arm64` and `linux/arm/v7` (limiting factor here
-is the Pi itself)
+The `linux/arm64` (64-bit) and `linux/arm/v7` (32-bit) architectures are
+supported (limiting factor here is the Pi itself)
 
 ## Usage
 
@@ -27,20 +30,20 @@ $ docker run -it dtcooper/raspberrypi-os:bullseye
 
 **Debian (Bullseye)**
  * Base image: `debian:bullseye`
- * Image name: `dtcooper/raspberrypi-os:latest`, `ghcr.io/dtcooper/raspberrypi-os:latest`
+ * Image names: `dtcooper/raspberrypi-os:latest`, `ghcr.io/dtcooper/raspberrypi-os:latest`
  * Tags: `latest`, `bullseye`
 
 **Python 3.10 (Debian Bullseye)**
  * Base image: `python:3.10-bullseye`
- * Image name: `dtcooper/raspberrypi-os:python`, `ghcr.io/dtcooper/raspberrypi-os:python`
+ * Image names: `dtcooper/raspberrypi-os:python`, `ghcr.io/dtcooper/raspberrypi-os:python`
  * Tags: `python`, `python3.10`, `python3.10-bullseye`
 
 **Python 3.9 (Debian Bullseye)**
  * Base image: `python:3.9-bullseye`
- * Image name: `dtcooper/raspberrypi-os:python3.9`, `ghcr.io/dtcooper/raspberrypi-os:python3.9`
+ * Image names: `dtcooper/raspberrypi-os:python3.9`, `ghcr.io/dtcooper/raspberrypi-os:python3.9`
  * Tags: `python3.9`, `python3.9-bullseye`
 
 **Python 3.8 (Debian Bullseye)**
  * Base image: `python:3.8-bullseye`
- * Image name: `dtcooper/raspberrypi-os:python3.8`, `ghcr.io/dtcooper/raspberrypi-os:python3.8`
+ * Image names: `dtcooper/raspberrypi-os:python3.8`, `ghcr.io/dtcooper/raspberrypi-os:python3.8`
  * Tags: `python3.8`, `python3.8-bullseye`
