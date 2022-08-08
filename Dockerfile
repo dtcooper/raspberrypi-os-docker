@@ -1,25 +1,7 @@
 ARG BASE_CONTAINER
-FROM $BASE_CONTAINER AS base
+FROM $BASE_CONTAINER
 
-
-FROM base AS builder
-
-RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        ca-certificates \
-        curl \
-        gnupg \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -s https://archive.raspberrypi.org/debian/raspberrypi.gpg.key | gpg --dearmor > /key.gpg
-
-
-FROM base AS final
-
-# Support piwheels.org
-RUN echo '[global]\nextra-index-url=https://www.piwheels.org/simple' >> /etc/pip.conf
-
-COPY --from=builder /key.gpg /etc/apt/trusted.gpg.d/raspi.gpg
+COPY image/ /
 
 RUN dpkg --add-architecture armhf \
     && echo "deb http://archive.raspberrypi.org/debian/ $(sh -c '. /etc/os-release; echo $VERSION_CODENAME') main" \
