@@ -81,4 +81,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: ${{ steps.vars.outputs.dh-repo }}
-          description: Raspberry Pi OS Docker Base Images
+          short-description: Raspberry Pi OS Docker Images
