@@ -15,8 +15,6 @@ jobs:
   build-push:
     runs-on: ubuntu-20.04
     name: Build and push container
-    outputs:
-      dh-repo: ${{ steps.vars.outputs.dh-repo }}
     strategy:
       matrix:
         include:
