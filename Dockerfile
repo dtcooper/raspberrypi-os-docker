@@ -10,4 +10,5 @@ RUN dpkg --add-architecture armhf \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         libraspberrypi0 \
+        libraspberrypi-bin \
     && rm -rf /var/lib/apt/lists/*
