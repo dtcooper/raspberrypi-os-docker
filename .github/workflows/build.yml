@@ -66,6 +66,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          pull: true
           platforms: linux/arm64,linux/arm/v7
           tags: |
             ${{ steps.vars.outputs.gh-repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.gh-repo)) }},
