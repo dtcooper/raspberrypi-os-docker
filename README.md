@@ -38,22 +38,62 @@ $ docker run -it dtcooper/raspberrypi-os:bullseye
 
 ## Containers
 
+**Debian (Bookworm)**
+  * Base image: `debian:bookworm`
+  * Image names: `dtcooper/raspberrypi-os:latest`, `ghcr.io/dtcooper/raspberrypi-os:latest`
+  * Tags: `latest`, `bookworm`
+
 **Debian (Bullseye)**
   * Base image: `debian:bullseye`
-  * Image names: `dtcooper/raspberrypi-os:latest`, `ghcr.io/dtcooper/raspberrypi-os:latest`
-  * Tags: `latest`, `bullseye`
+  * Image names: `dtcooper/raspberrypi-os:bullseye`, `ghcr.io/dtcooper/raspberrypi-os:bullseye`
+  * Tags: `bullseye`
+
+**Python 3.12 (Debian Bookworm)**
+  * Base image: `python:3.12-bookworm`
+  * Image names: `dtcooper/raspberrypi-os:python`, `ghcr.io/dtcooper/raspberrypi-os:python`
+  * Tags: `python`, `python-bookworm`, `python3.12`, `python3.12-bookworm`
+
+**Python 3.11 (Debian Bookworm)**
+  * Base image: `python:3.11-bookworm`
+  * Image names: `dtcooper/raspberrypi-os:python3.11`, `ghcr.io/dtcooper/raspberrypi-os:python3.11`
+  * Tags: `python3.11`, `python3.11-bookworm`
+
+**Python 3.10 (Debian Bookworm)**
+  * Base image: `python:3.10-bookworm`
+  * Image names: `dtcooper/raspberrypi-os:python3.10`, `ghcr.io/dtcooper/raspberrypi-os:python3.10`
+  * Tags: `python3.10`, `python3.10-bookworm`
+
+**Python 3.9 (Debian Bookworm)**
+  * Base image: `python:3.9-bookworm`
+  * Image names: `dtcooper/raspberrypi-os:python3.9`, `ghcr.io/dtcooper/raspberrypi-os:python3.9`
+  * Tags: `python3.9`, `python3.9-bookworm`
+
+**Python 3.8 (Debian Bookworm)**
+  * Base image: `python:3.8-bookworm`
+  * Image names: `dtcooper/raspberrypi-os:python3.8`, `ghcr.io/dtcooper/raspberrypi-os:python3.8`
+  * Tags: `python3.8`, `python3.8-bookworm`
+
+**Python 3.12 (Debian Bullseye)**
+  * Base image: `python:3.12-bullseye`
+  * Image names: `dtcooper/raspberrypi-os:python-bullseye`, `ghcr.io/dtcooper/raspberrypi-os:python-bullseye`
+  * Tags: `python-bullseye`, `python3.12-bullseye`
+
+**Python 3.11 (Debian Bullseye)**
+  * Base image: `python:3.11-bullseye`
+  * Image names: `dtcooper/raspberrypi-os:python3.11-bullseye`, `ghcr.io/dtcooper/raspberrypi-os:python3.11-bullseye`
+  * Tags: `python3.11-bullseye`
 
 **Python 3.10 (Debian Bullseye)**
   * Base image: `python:3.10-bullseye`
-  * Image names: `dtcooper/raspberrypi-os:python`, `ghcr.io/dtcooper/raspberrypi-os:python`
-  * Tags: `python`, `python3.10`, `python3.10-bullseye`
+  * Image names: `dtcooper/raspberrypi-os:python3.10-bullseye`, `ghcr.io/dtcooper/raspberrypi-os:python3.10-bullseye`
+  * Tags: `python3.10-bullseye`
 
 **Python 3.9 (Debian Bullseye)**
   * Base image: `python:3.9-bullseye`
-  * Image names: `dtcooper/raspberrypi-os:python3.9`, `ghcr.io/dtcooper/raspberrypi-os:python3.9`
-  * Tags: `python3.9`, `python3.9-bullseye`
+  * Image names: `dtcooper/raspberrypi-os:python3.9-bullseye`, `ghcr.io/dtcooper/raspberrypi-os:python3.9-bullseye`
+  * Tags: `python3.9-bullseye`
 
 **Python 3.8 (Debian Bullseye)**
   * Base image: `python:3.8-bullseye`
-  * Image names: `dtcooper/raspberrypi-os:python3.8`, `ghcr.io/dtcooper/raspberrypi-os:python3.8`
-  * Tags: `python3.8`, `python3.8-bullseye`
+  * Image names: `dtcooper/raspberrypi-os:python3.8-bullseye`, `ghcr.io/dtcooper/raspberrypi-os:python3.8-bullseye`
+  * Tags: `python3.8-bullseye`
