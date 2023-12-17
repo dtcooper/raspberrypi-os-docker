@@ -22,18 +22,22 @@ if you'd like one added.
 The `linux/arm64` (64-bit) and `linux/arm/v7` (32-bit) architectures are
 supported (limiting factor here is the Pi itself)
 
+These are suitable for use cases where Debian packages that are available in
+Raspberry Pi's repositories are needed, for example in my use case the package
+`libraspberrypi0` was needed.
+
 ## Usage
 
 From your Dockerfile,
 
 ```Dockerfile
-FROM dtcooper/raspberrypi-os:bullseye
+FROM dtcooper/raspberrypi-os:bookworm
 ```
 
 Or from the command line
 
 ```bash
-$ docker run -it dtcooper/raspberrypi-os:bullseye
+$ docker run -it dtcooper/raspberrypi-os:bookworm
 ```
 
 ## Containers
