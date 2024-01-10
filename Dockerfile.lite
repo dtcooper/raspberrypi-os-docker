@@ -1,4 +1,34 @@
 ARG RPI_BASE_CONTAINER
+
+FROM debian:bookworm AS package-finder
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        ca-certificates \
+        git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN cd /tmp \
+    && git clone https://github.com/RPi-Distro/pi-gen.git \
+    && cd pi-gen \
+    && case "$(sh -c '. /etc/os-release; echo $VERSION_CODENAME')-$(dpkg --print-architecture)" in \
+        bookworm-arm64) git checkout arm64 ;; \
+        bookworm-armhf) git checkout master ;; \
+        bullseye-arm64) git checkout bullseye-arm64 ;; \
+        bullseye-armhf) git checkout bullseye ;; \
+    esac \
+    # Stage 2 is the Lite image
+    && cat $(find stage0 stage1 stage2 -name '*-packages' -type f) | sed 's/ /\n/g' | sort > /packages.txt \
+    && cat $(find stage0 stage1 stage2 -name '*-packages-nr' -type f) | sed 's/ /\n/g' | sort > /packages-nr.txt \
+    && cd /tmp \
+    && rm -rf /tmp/pi-gen
+
+
 FROM $RPI_BASE_CONTAINER
 
-RUN touch /test
+COPY --from=package-finder /packages.txt /packages-nr.txt /tmp/
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $(cat /tmp/packages-nr.txt) \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y $(cat /tmp/packages.txt) \
+    && rm -rf /var/lib/apt/lists/* /tmp/packages-nr.txt /tmp/packages.txt
