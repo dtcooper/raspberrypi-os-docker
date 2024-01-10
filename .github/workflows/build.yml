@@ -106,10 +106,10 @@ jobs:
       matrix:
         include:
           -
-            baseimage: "ghcr.io/${{ github.repository_owner }}/raspberrypi-os:bookworm"
+            rpi-baseimage: "ghcr.io/${{ github.repository_owner }}/raspberrypi-os:bookworm"
             tags: ["lite", "lite-bookworm"]
           -
-            baseimage: "ghcr.io/${{ github.repository_owner }}/raspberrypi-os:bullseye"
+            rpi-baseimage: "ghcr.io/${{ github.repository_owner }}/raspberrypi-os:bullseye"
             tags: ["lite-bullseye"]
     steps:
       -
@@ -151,7 +151,7 @@ jobs:
           tags: |
             ${{ steps.vars.outputs.gh-repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.gh-repo)) }},
             ${{ steps.vars.outputs.dh-repo }}:${{ join(matrix.tags, format(',{0}:', steps.vars.outputs.dh-repo)) }}
-          build-args: BASE_CONTAINER=${{ matrix.baseimage }}
+          build-args: RPI_BASE_CONTAINER=${{ matrix.rpi-baseimage }}
           cache-from: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }}
           cache-to: type=registry,ref=${{ steps.vars.outputs.gh-repo }}-cache:${{ matrix.tags[0] }},mode=max
 
