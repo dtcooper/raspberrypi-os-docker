@@ -100,6 +100,7 @@ jobs:
   lite-build-push:
     runs-on: ubuntu-22.04
     name: Build and push lite containers
+    needs: [build-push]
     strategy:
       matrix:
         include:
