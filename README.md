@@ -14,7 +14,7 @@ Here are Docker container base images for building and running software that
 requires Raspberry Pi's Debian packageset.
 
 So far Debian and Python base images are supported, but any base images based on
-Debian Bullseye could theoretically be supported. Create a
+Debian Bookworm or Bullseye could theoretically be supported. Create a
 [pull request](https://github.com/dtcooper/raspberrypi-os-docker/pulls) or
 [issue](https://github.com/dtcooper/raspberrypi-os-docker/issues)
 if you'd like one added.
